@@ -1,15 +1,22 @@
-import './globals.css'
-import type { ReactNode } from 'react'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-export const metadata = {
-  title: 'OMF',
-  description: 'Mortgages made simple. Onshore. Offshore. Overseas.',
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'OMF - Online Mortgage Finder',
+  description: 'Find the best mortgage deals tailored to your needs',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning={true}>
         {children}
       </body>
     </html>

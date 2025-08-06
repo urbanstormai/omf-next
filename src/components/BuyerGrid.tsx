@@ -1,7 +1,3 @@
 export default function BuyerGrid() {
-  return (
-    <section>
-      <BuyerGrid />
-    </section>
-  );
+  return <section>BuyerGrid section (replace with real content)</section>;
 }

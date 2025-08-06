@@ -47,8 +47,8 @@ export default function BuyerGrid() {
 
   return (
     <section
-      itemscope
-      itemtype="https://schema.org/Service"
+      itemScope
+      itemType="https://schema.org/Service"
       aria-labelledby="buyergrid-heading"
       className="bg-off py-16 px-6 md:px-12"
     >
@@ -97,13 +97,13 @@ export default function BuyerGrid() {
                     id={tab.id}
                     role="tabpanel"
                     aria-labelledby={`${tab.id}-tab`}
-                    initial={reduceMotion ? false : 'enter'}
+                    initial={reduceMotion ? undefined : 'enter'}
                     animate="center"
-                    exit={reduceMotion ? false : 'exit'}
+                    exit={reduceMotion ? undefined : 'exit'}
                     variants={variants}
                     transition={{ duration: 0.6 }}
                     className="prose mx-auto max-w-2xl text-center text-charcoal"
-                    itemprop="audience"
+                    itemProp="audience"
                   >
                     <p>{tab.content}</p>
                   </motion.section>

@@ -18,20 +18,14 @@ export default function LenderMarquee() {
     { src: '/assets/icons/lender-lloyds-bank.svg', alt: 'Lloyds Bank logo' },
   ];
 
-  const marqueeVariants = {
-    animate: reduceMotion
-      ? { x: 0 }
-      : {
-          x: ['0%', '-100%'],
-          transition: {
-            x: { repeat: Infinity, duration: 20, ease: 'linear' },
-          },
-        },
-  };
-
   useEffect(() => {
     if (!reduceMotion) {
-      controls.start('animate');
+      controls.start({
+        x: ['0%', '-100%'],
+        transition: {
+          x: { repeat: Infinity, duration: 20, ease: 'linear' },
+        },
+      });
     }
   }, [reduceMotion, controls]);
 
@@ -46,10 +40,18 @@ export default function LenderMarquee() {
         <div className="hidden md:block flex-1 relative">
           <motion.div
             className="flex items-center h-full space-x-8 absolute left-0 top-0"
-            variants={marqueeVariants}
-            animate={controls}
+            animate={reduceMotion ? { x: 0 } : controls}
             onHoverStart={() => controls.stop()}
-            onHoverEnd={() => controls.start('animate')}
+            onHoverEnd={() => {
+              if (!reduceMotion) {
+                controls.start({
+                  x: ['0%', '-100%'],
+                  transition: {
+                    x: { repeat: Infinity, duration: 20, ease: 'linear' },
+                  },
+                });
+              }
+            }}
           >
             {logos.concat(logos).map((logo, idx) => (
               <div key={idx} className="flex-shrink-0">

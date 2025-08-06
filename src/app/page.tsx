@@ -7,3 +7,6 @@ export default function Home() {
     </main>
   );
 }
+import LenderMarquee from "@/components/LenderMarquee";
+<LenderMarquee />
+

@@ -24,3 +24,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Hero Background Gradients */
+.bg-hero {
+  background: linear-gradient(135deg, #B8E6D1 0%, #7DD3C0 50%, #2D3748 100%);
+}
+
+.bg-hero-light {
+  background: linear-gradient(135deg, #F8FAFC 0%, #B8E6D1 50%, #7DD3C0 100%);
+}
+
+.bg-hero-dark {
+  background: linear-gradient(135deg, #2D3748 0%, #7DD3C0 50%, #B8E6D1 100%);
+}
+
+.bg-hero-radial {
+  background: radial-gradient(ellipse at center, #B8E6D1 0%, #7DD3C0 40%, #2D3748 100%);
+}
+
+.bg-hero-vertical {
+  background: linear-gradient(180deg, #B8E6D1 0%, #7DD3C0 50%, #2D3748 100%);
+}

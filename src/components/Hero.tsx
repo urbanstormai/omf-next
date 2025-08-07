@@ -1,6 +1,8 @@
 'use client';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { Shield, Clock, Globe } from 'lucide-react';
+import PrimaryButton from './ui/PrimaryButton';
+import GlassCard from './ui/GlassCard';
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -27,108 +29,69 @@ export default function Hero() {
     },
   };
 
-  const floatVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-      },
-    },
-  };
-
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-mint via-sea to-teal-300 text-charcoal text-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-mint/20 via-transparent to-sea/20" />
-      
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-white text-center overflow-hidden bg-hero pt-20">
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6"
           variants={itemVariants}
         >
           Mortgages made simple.
-          <br />
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium">
-            Onshore • Offshore • Overseas.
-          </span>
         </motion.h1>
         
         <motion.p 
-          className="mt-6 text-lg sm:text-xl md:text-2xl text-charcoal/80 max-w-2xl mx-auto"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white/90 mb-8"
           variants={itemVariants}
         >
-          Your path to buying in the UK or Overseas starts here.
+          Onshore • Offshore • Overseas.
+        </motion.p>
+        
+        <motion.p 
+          className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12"
+          variants={itemVariants}
+        >
+          Your path to buying in the UK or Overseas starts here. Expert guidance, competitive rates, and seamless service.
         </motion.p>
         
         <motion.div 
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
           variants={itemVariants}
         >
-          <button
-            aria-label="Book a free call to discuss your mortgage options"
-            className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-off bg-charcoal rounded-full hover:bg-charcoal/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-charcoal transition-all duration-200 hover:scale-105 active:scale-95"
-          >
+          <PrimaryButton href="#lead" variant="primary" icon>
             Book a free call
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </button>
+          </PrimaryButton>
+          <PrimaryButton href="#lead" variant="secondary">
+            Download guide
+          </PrimaryButton>
         </motion.div>
         
         <motion.div 
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
           variants={itemVariants}
         >
-          <span className="inline-flex items-center px-3 py-1.5 bg-black/10 text-charcoal text-sm font-medium rounded-full">
-            Trustpilot-rated
-          </span>
-          <span className="inline-flex items-center px-3 py-1.5 bg-off/80 text-charcoal text-sm font-medium rounded-full">
-            FCA regulated
-          </span>
+          <GlassCard variant="glass" className="text-center">
+            <Shield className="h-8 w-8 text-white mx-auto mb-3" />
+            <h3 className="text-lg font-semibold text-white mb-2">FCA Regulated</h3>
+            <p className="text-white/80 text-sm">Fully authorised and regulated for your peace of mind</p>
+          </GlassCard>
+          
+          <GlassCard variant="glass" className="text-center">
+            <Clock className="h-8 w-8 text-white mx-auto mb-3" />
+            <h3 className="text-lg font-semibold text-white mb-2">Fast Approval</h3>
+            <p className="text-white/80 text-sm">Quick decisions with our streamlined process</p>
+          </GlassCard>
+          
+          <GlassCard variant="glass" className="text-center">
+            <Globe className="h-8 w-8 text-white mx-auto mb-3" />
+            <h3 className="text-lg font-semibold text-white mb-2">Global Reach</h3>
+            <p className="text-white/80 text-sm">UK and overseas property financing specialists</p>
+          </GlassCard>
         </motion.div>
-      </motion.div>
-
-      {/* Floating SVG Elements */}
-      <motion.div
-        aria-hidden="true"
-        initial="hidden"
-        animate="visible"
-        variants={floatVariants}
-        className="absolute top-20 left-10 w-32 h-32 opacity-20"
-      >
-        <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="64" cy="64" r="40" fill="currentColor" />
-        </svg>
-      </motion.div>
-
-      <motion.div
-        aria-hidden="true"
-        initial="hidden"
-        animate="visible"
-        variants={floatVariants}
-        transition={{ delay: 0.3 }}
-        className="absolute bottom-20 right-10 w-24 h-24 opacity-15"
-      >
-        <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="12" width="72" height="72" rx="12" fill="currentColor" />
-        </svg>
-      </motion.div>
-
-      <motion.div
-        aria-hidden="true"
-        initial="hidden"
-        animate="visible"
-        variants={floatVariants}
-        transition={{ delay: 0.6 }}
-        className="absolute top-1/2 left-1/4 w-16 h-16 opacity-10"
-      >
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="32,8 56,56 8,56" fill="currentColor" />
-        </svg>
       </motion.div>
     </section>
   );

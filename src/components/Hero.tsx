@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-white text-center overflow-hidden bg-hero pt-20">
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-white text-center overflow-hidden bg-hero pt-24">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

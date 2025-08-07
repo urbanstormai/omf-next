@@ -7,37 +7,37 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
             <Image
               src="/assets/lenders/logo.png"
               alt="OMF Logo"
-              width={280}
-              height={93}
-              className="h-18 w-auto"
+              width={320}
+              height={107}
+              className="h-20 w-auto"
               priority
             />
           </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#services" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#services" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Services
               </a>
-              <a href="#process" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#process" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Process
               </a>
-              <a href="#about" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#about" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 About
               </a>
-              <a href="#lead" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#lead" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Contact
               </a>
               <a 
                 href="#lead"
-                className="bg-charcoal/10 text-charcoal px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-charcoal/20 transition-colors backdrop-blur-sm border border-charcoal/20"
+                className="glossy text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-white/20 transition-all duration-200 border border-white/30"
               >
                 Free Consultation
               </a>

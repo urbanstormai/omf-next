@@ -14,9 +14,9 @@ export default function NavBar() {
             <Image
               src="/assets/lenders/logo.png"
               alt="OMF Logo"
-              width={320}
-              height={107}
-              className="h-20 w-auto"
+              width={450}
+              height={150}
+              className="h-22 w-auto"
               priority
             />
           </div>

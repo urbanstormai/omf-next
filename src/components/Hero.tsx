@@ -107,7 +107,7 @@ export default function Hero() {
         </motion.p>
         
         <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-24"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
           variants={itemVariants}
         >
           <motion.a
@@ -121,40 +121,37 @@ export default function Hero() {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
           variants={itemVariants}
         >
           <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             transition={{ duration: 0.3 }}
-            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
+            className="glass-dark rounded-xl p-4 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-            <Shield className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
-            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">FCA Regulated</h3>
-            <p className="text-white/60 text-sm leading-relaxed">Fully authorised and regulated for your peace of mind</p>
+            <Shield className="h-6 w-6 text-white/70 mx-auto mb-2 drop-shadow-lg" />
+            <h3 className="text-sm font-bold text-white/80 tracking-wide">FCA Regulated</h3>
           </motion.div>
           
           <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             transition={{ duration: 0.3 }}
-            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
+            className="glass-dark rounded-xl p-4 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-            <Clock className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
-            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">Fast Approval</h3>
-            <p className="text-white/60 text-sm leading-relaxed">Quick decisions with our streamlined process</p>
+            <Clock className="h-6 w-6 text-white/70 mx-auto mb-2 drop-shadow-lg" />
+            <h3 className="text-sm font-bold text-white/80 tracking-wide">Fast Approval</h3>
           </motion.div>
           
           <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             transition={{ duration: 0.3 }}
-            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
+            className="glass-dark rounded-xl p-4 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-            <Users className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
-            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">Overseas Experts</h3>
-            <p className="text-white/60 text-sm leading-relaxed">UK and overseas property financing specialists</p>
+            <Users className="h-6 w-6 text-white/70 mx-auto mb-2 drop-shadow-lg" />
+            <h3 className="text-sm font-bold text-white/80 tracking-wide">Overseas Experts</h3>
           </motion.div>
         </motion.div>
       </motion.div>

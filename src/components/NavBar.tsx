@@ -14,30 +14,30 @@ export default function NavBar() {
             <Image
               src="/assets/lenders/logo.png"
               alt="OMF Logo"
-              width={240}
-              height={80}
-              className="h-16 w-auto"
+              width={280}
+              height={93}
+              className="h-18 w-auto"
               priority
             />
           </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#services" className="text-white/90 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#services" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Services
               </a>
-              <a href="#process" className="text-white/90 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#process" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Process
               </a>
-              <a href="#about" className="text-white/90 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#about" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 About
               </a>
-              <a href="#lead" className="text-white/90 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <a href="#lead" className="text-charcoal hover:text-charcoal/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Contact
               </a>
               <a 
                 href="#lead"
-                className="bg-white/20 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors backdrop-blur-sm border border-white/30"
+                className="bg-charcoal/10 text-charcoal px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-charcoal/20 transition-colors backdrop-blur-sm border border-charcoal/20"
               >
                 Free Consultation
               </a>

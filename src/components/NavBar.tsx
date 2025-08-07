@@ -9,14 +9,14 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-28">
           <div className="flex items-center">
             <Image
               src="/assets/lenders/logo.png"
               alt="OMF Logo"
-              width={450}
-              height={150}
-              className="h-22 w-auto"
+              width={600}
+              height={200}
+              className="h-24 w-auto"
               priority
             />
           </div>

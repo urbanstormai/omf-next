@@ -1,8 +1,6 @@
 'use client';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Shield, Clock, Users } from 'lucide-react';
-import PrimaryButton from './ui/PrimaryButton';
-import GlassCard from './ui/GlassCard';
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -30,7 +28,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-white text-center overflow-hidden bg-hero pt-24">
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-white text-center overflow-hidden bg-hero pt-40">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -77,39 +75,49 @@ export default function Hero() {
         animate="visible"
       >
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight mb-8 bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent"
           variants={itemVariants}
           style={{
             textShadow: '0 0 40px rgba(255, 255, 255, 0.3)',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
           }}
         >
           Mortgages made simple.
         </motion.h1>
         
         <motion.p 
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-8 bg-gradient-to-r from-white/90 via-white/95 to-white/80 bg-clip-text text-transparent"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-12 bg-gradient-to-r from-white/90 via-white/95 to-white/80 bg-clip-text text-transparent"
           variants={itemVariants}
+          style={{
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+          }}
         >
-          Onshore • Offshore • Overseas.
+          Onshore.Offshore.Overseas.
         </motion.p>
         
         <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-white/85 max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-xl sm:text-2xl md:text-3xl text-white/85 max-w-4xl mx-auto mb-16 leading-relaxed font-medium"
           variants={itemVariants}
           style={{
             textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
           }}
         >
           Your path to buying in the UK or Overseas starts here. Expert guidance, competitive rates, and seamless service.
         </motion.p>
         
         <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-24"
           variants={itemVariants}
         >
-          <PrimaryButton href="#lead" variant="primary" icon>
-            Book a free call
-          </PrimaryButton>
+          <motion.a
+            href="#lead"
+            className="glossy text-charcoal px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/30 transition-all duration-200 border border-white/40 backdrop-blur-md bg-white/20"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Book a free call →
+          </motion.a>
         </motion.div>
         
         <motion.div 
@@ -119,37 +127,34 @@ export default function Hero() {
           <motion.div
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
+            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
-            <GlassCard variant="glossy" className="text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <Shield className="h-10 w-10 text-white mx-auto mb-4 drop-shadow-lg" />
-              <h3 className="text-xl font-bold text-white mb-3 tracking-wide">FCA Regulated</h3>
-              <p className="text-white/85 text-sm leading-relaxed">Fully authorised and regulated for your peace of mind</p>
-            </GlassCard>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+            <Shield className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
+            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">FCA Regulated</h3>
+            <p className="text-white/60 text-sm leading-relaxed">Fully authorised and regulated for your peace of mind</p>
           </motion.div>
           
           <motion.div
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
+            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
-            <GlassCard variant="glossy" className="text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <Clock className="h-10 w-10 text-white mx-auto mb-4 drop-shadow-lg" />
-              <h3 className="text-xl font-bold text-white mb-3 tracking-wide">Fast Approval</h3>
-              <p className="text-white/85 text-sm leading-relaxed">Quick decisions with our streamlined process</p>
-            </GlassCard>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+            <Clock className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
+            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">Fast Approval</h3>
+            <p className="text-white/60 text-sm leading-relaxed">Quick decisions with our streamlined process</p>
           </motion.div>
           
           <motion.div
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
+            className="glass-dark rounded-2xl p-8 text-center relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/20"
           >
-            <GlassCard variant="glossy" className="text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              <Users className="h-10 w-10 text-white mx-auto mb-4 drop-shadow-lg" />
-              <h3 className="text-xl font-bold text-white mb-3 tracking-wide">Overseas Experts</h3>
-              <p className="text-white/85 text-sm leading-relaxed">UK and overseas property financing specialists</p>
-            </GlassCard>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+            <Users className="h-12 w-12 text-white/70 mx-auto mb-6 drop-shadow-lg" />
+            <h3 className="text-xl font-bold text-white/80 mb-4 tracking-wide">Overseas Experts</h3>
+            <p className="text-white/60 text-sm leading-relaxed">UK and overseas property financing specialists</p>
           </motion.div>
         </motion.div>
       </motion.div>

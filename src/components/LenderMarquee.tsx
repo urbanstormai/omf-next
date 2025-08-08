@@ -1,74 +1,63 @@
 'use client';
-import { motion, useReducedMotion, useAnimation } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function LenderMarquee() {
-  const reduceMotion = useReducedMotion();
-  const controls = useAnimation();
-
-  const logos = [
-    { src: '/assets/icons/lender-santander.svg', alt: 'Santander logo' },
-    { src: '/assets/icons/lender-hsbc.svg', alt: 'HSBC logo' },
-    { src: '/assets/icons/lender-barclays.svg', alt: 'Barclays logo' },
-    { src: '/assets/icons/lender-halifax.svg', alt: 'Halifax logo' },
-    { src: '/assets/icons/lender-skipton-building-society.svg', alt: 'Skipton Building Society logo' },
-    { src: '/assets/icons/lender-virgin.svg', alt: 'Virgin Money logo' },
-    { src: '/assets/icons/lender-natwest.svg', alt: 'NatWest logo' },
-    { src: '/assets/icons/lender-lloyds-bank.svg', alt: 'Lloyds Bank logo' },
+  const text = "Access to 200+ Leading Lenders";
+  const lenders = [
+    'Santander',
+    'HSBC',
+    'Barclays',
+    'Halifax',
+    'NatWest',
+    'Lloyds Bank',
+    'Nationwide',
+    'Virgin Money',
+    'Skipton',
+    'Leeds Building Society',
   ];
 
-  useEffect(() => {
-    if (!reduceMotion) {
-      controls.start({
-        x: ['0%', '-100%'],
-        transition: {
-          x: { repeat: Infinity, duration: 20, ease: 'linear' },
-        },
-      });
-    }
-  }, [reduceMotion, controls]);
+  // Create duplicated content for seamless loop
+  const duplicatedContent = [...lenders, ...lenders, ...lenders];
 
   return (
-    <section className="bg-charcoal">
-      <div className="flex items-center h-14 md:h-16 px-6 md:px-12 overflow-hidden relative">
-        <h2 className="text-lg md:text-xl font-semibold text-off flex-shrink-0 mr-8">
-          Access to 200+ Lenders
-        </h2>
-
-        {/* Desktop marquee */}
-        <div className="hidden md:block flex-1 relative">
-          <motion.div
-            className="flex items-center h-full space-x-8 absolute left-0 top-0"
-            animate={reduceMotion ? { x: 0 } : controls}
-            onHoverStart={() => controls.stop()}
-            onHoverEnd={() => {
-              if (!reduceMotion) {
-                controls.start({
-                  x: ['0%', '-100%'],
-                  transition: {
-                    x: { repeat: Infinity, duration: 20, ease: 'linear' },
-                  },
-                });
-              }
-            }}
-          >
-            {logos.concat(logos).map((logo, idx) => (
-              <div key={idx} className="flex-shrink-0">
-                <Image src={logo.src} alt={logo.alt} width={120} height={40} />
+    <section className="bg-white py-3">
+      <div className="overflow-hidden">
+        <motion.div
+          className="flex items-center"
+          animate={{
+            x: ['0%', '-50%'],
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: 'loop',
+              duration: 40,
+              ease: 'linear',
+            },
+          }}
+        >
+          <div className="flex items-center flex-shrink-0">
+            <span className="text-black font-semibold text-sm whitespace-nowrap mr-8">
+              {text}
+            </span>
+            {duplicatedContent.map((lender, index) => (
+              <div key={index} className="flex items-center">
+                <span className="text-black text-sm font-medium mx-4 whitespace-nowrap">
+                  {lender}
+                </span>
+                {index < duplicatedContent.length - 1 && (
+                  <div className="w-px h-4 bg-gray-300" />
+                )}
               </div>
             ))}
-          </motion.div>
-        </div>
-
-        {/* Mobile swipeable */}
-        <div className="md:hidden flex-1 overflow-x-auto flex items-center space-x-6 py-2">
-          {logos.map((logo, idx) => (
-            <div key={idx} className="flex-shrink-0">
-              <Image src={logo.src} alt={logo.alt} width={100} height={32} />
-            </div>
-          ))}
-        </div>
+          </div>
+        </motion.div>
+      </div>
+      
+      <div className="text-center mt-2">
+        <p className="text-xs text-gray-600">
+          Trusted partnerships with the UK's leading mortgage providers
+        </p>
       </div>
     </section>
   );

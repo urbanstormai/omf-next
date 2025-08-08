@@ -1,12 +1,15 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'OMF - Online Mortgage Finder',
-  description: 'Find the best mortgage deals tailored to your needs',
+  title: "OMF - Overseas Mortgage Finance",
+  description: "Mortgages made simple. Onshore • Offshore • Overseas. Your path to buying in the UK or Overseas starts here.",
 };
 
 export default function RootLayout({
@@ -16,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased" suppressHydrationWarning={true}>
-        {children}
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }

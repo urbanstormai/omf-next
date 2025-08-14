@@ -1,91 +1,50 @@
 'use client';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Image from 'next/image';
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-28">
-          <div className="flex items-center">
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+      className="fixed top-0 inset-x-0 z-50"
+    >
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Reduced height: h-16 (64px). Rounded glass pill. */}
+        <div className="mt-3 glass-dark glossy rounded-full h-16 px-5 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            {/* Lock intrinsic size for CLS; scale visually via className */}
             <Image
               src="/assets/lenders/logo.png"
-              alt="OMF Logo"
+              alt="OMF"
               width={600}
               height={200}
-              className="h-24 w-auto"
               priority
+              className="h-10 w-auto"  /* was h-24; now slimmer */
             />
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#services" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Services
-              </a>
-              <a href="#process" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Process
-              </a>
-              <a href="#about" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                About
-              </a>
-              <a href="#lead" className="text-white hover:text-white/80 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Contact
-              </a>
-              <a 
-                href="#lead"
-                className="glossy text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-white/20 transition-all duration-200 border border-white/30"
-              >
-                Free Consultation
-              </a>
-            </div>
-          </div>
-          
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50"
-              aria-expanded={isOpen}
-            >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
+            <span className="sr-only">UK & Overseas Mortgage Experts</span>
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-5 text-white/80 text-sm">
+            <Link href="#services" className="hover:text-white">Services</Link>
+            <Link href="#process" className="hover:text-white">Process</Link>
+            <Link href="#about" className="hover:text-white">About</Link>
+            <Link href="#contact" className="hover:text-white">Contact</Link>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link href="#lead" className="hidden md:inline-flex rounded-full bg-white/10 text-white px-4 py-2 hover:bg-white/20">
+              Log in
+            </Link>
+            <Link href="#lead"
+              className="rounded-full bg-mint text-charcoal px-4 py-2 font-semibold shadow-soft hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-mint/80">
+              Free consultation
+            </Link>
           </div>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass-dark border-t border-white/20">
-            <a href="#services" className="text-white/90 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Services
-            </a>
-            <a href="#process" className="text-white/90 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Process
-            </a>
-            <a href="#about" className="text-white/90 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              About
-            </a>
-            <a href="#lead" className="text-white/90 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Contact
-            </a>
-            <a 
-              href="#lead"
-              className="w-full text-left bg-white/20 text-white px-3 py-2 rounded-lg text-base font-semibold hover:bg-white/30 block"
-            >
-              Free Consultation
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
+    </motion.header>
   );
 }

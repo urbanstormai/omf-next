@@ -1,64 +1,56 @@
 'use client';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Section from './ui/Section';
+import SectionHeading from './ui/SectionHeading';
+
+type Lender = { name: string; src: string; w: number; h: number; alt?: string };
+
+const LENDERS: Lender[] = [
+  { name: 'Barclays', src: '/barclays.svg', w: 120, h: 40, alt: 'Barclays' },
+  { name: 'HSBC', src: '/hsbc.svg', w: 120, h: 40, alt: 'HSBC' },
+  { name: 'Santander', src: '/santander.svg', w: 120, h: 40, alt: 'Santander' },
+  { name: 'Halifax', src: '/halifax.jpeg', w: 120, h: 40, alt: 'Halifax' },
+  { name: 'NatWest', src: '/natwest.svg', w: 120, h: 40, alt: 'NatWest' },
+  { name: 'Lloyds', src: '/lloyds.svg', w: 120, h: 40, alt: 'Lloyds Bank' },
+  { name: 'Nationwide', src: '/nationwide.svg', w: 120, h: 40, alt: 'Nationwide' },
+  { name: 'Virgin Money', src: '/virgin.svg', w: 120, h: 40, alt: 'Virgin Money' }
+];
 
 export default function LenderMarquee() {
-  const text = "Access to 200+ Leading Lenders";
-  const lenders = [
-    'Santander',
-    'HSBC',
-    'Barclays',
-    'Halifax',
-    'NatWest',
-    'Lloyds Bank',
-    'Nationwide',
-    'Virgin Money',
-    'Skipton',
-    'Leeds Building Society',
-  ];
-
-  // Create duplicated content for seamless loop
-  const duplicatedContent = [...lenders, ...lenders, ...lenders];
+  // duplicate once for continuous scroll
+  const items = [...LENDERS, ...LENDERS];
 
   return (
-    <section className="bg-white py-3">
-      <div className="overflow-hidden">
-        <motion.div
-          className="flex items-center"
-          animate={{
-            x: ['0%', '-50%'],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              duration: 40,
-              ease: 'linear',
-            },
-          }}
-        >
-          <div className="flex items-center flex-shrink-0">
-            <span className="text-black font-semibold text-sm whitespace-nowrap mr-8">
-              {text}
-            </span>
-            {duplicatedContent.map((lender, index) => (
-              <div key={index} className="flex items-center">
-                <span className="text-black text-sm font-medium mx-4 whitespace-nowrap">
-                  {lender}
-                </span>
-                {index < duplicatedContent.length - 1 && (
-                  <div className="w-px h-4 bg-gray-300" />
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
+    <Section className="pt-10">
+      <SectionHeading title="Trusted by leading lenders" subtitle="Whole-of-market access" />
+      <div className="mt-8 glass-dark glossy rounded-xl2 px-4 py-3 overflow-hidden">
+        <div className="marquee flex items-center gap-10 will-change-transform">
+          {items.map((l, i) => (
+            <div key={`${l.name}-${i}`} className="shrink-0 opacity-90 hover:opacity-100 transition-opacity">
+              <Image
+                src={l.src}
+                alt={l.alt ?? l.name}
+                width={l.w}
+                height={l.h}
+                loading="lazy"
+                className="h-8 w-auto"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      
-      <div className="text-center mt-2">
-        <p className="text-xs text-gray-600">
-          Trusted partnerships with the UK's leading mortgage providers
-        </p>
-      </div>
-    </section>
+      <style jsx>{`
+        .marquee {
+          animation: scroll 26s linear infinite;
+        }
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee { animation: none; }
+        }
+      `}</style>
+    </Section>
   );
 }
